@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,32 +11,50 @@ namespace ExceptionHandling
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the first Number");
-            int a = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the second Nunber");
-            int b =int .Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the first Number");
+            //int a = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the second Nunber");
+            //int b =int .Parse(Console.ReadLine());
 
-            try {
+            //try {
 
-                int result = a / b;
-                Console.Write("The result is: " + result);
-            }
-            catch(DivideByZeroException ex)
+            //    int result = a / b;
+            //    Console.Write("The result is: " + result);
+            //}
+            //catch(DivideByZeroException ex)
+            //{
+            //    Console.WriteLine("You cannot divde by zero");
+            //    Console.WriteLine(ex.Message);
+            //}
+
+            //Console.WriteLine();
+
+            int act_balance = 5000;
+            int with_balance = 6000;
+
+
+            try
             {
-                Console.WriteLine("You cannot divde by zero");
+                if (act_balance < with_balance)
+                {
+                    throw new Exception("Insufficient balance");
+                }
+                else
+                {
+
+                    Console.WriteLine(act_balance - with_balance);
+                }
+            }
+            catch (Exception e) {
+
+                Console.WriteLine(e.Message);
             }
 
-            Console.WriteLine();
+            
 
 
-            Console.WriteLine("Line 1");
-            Console.WriteLine("Line 2");
-            Console.WriteLine("Line 3");
 
-            Console.WriteLine("Line 3");
-            Console.WriteLine("Line 4");
-            Console.WriteLine("Line 5");
-
+            
 
         }
     }
